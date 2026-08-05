@@ -4,8 +4,6 @@ Windows 11 shell dressed in the [gruvvy-watermelon](https://github.com/zacccharv
 palette: Zebar on top, taskbar below it, and the start menu / notification
 center / file explorer in the same colors and the same font.
 
-![preview](preview.png)
-
 ## Screenshots
 
 Full desktop — Zebar on top, taskbar at the bottom, wallpaper in between:
