@@ -6,6 +6,40 @@ center / file explorer in the same colors and the same font.
 
 ![preview](preview.png)
 
+## Screenshots
+
+Full desktop — Zebar on top, taskbar at the bottom, wallpaper in between:
+
+![desktop](docs/desktop.jpg)
+
+The two bars, side by side. Same palette, same 36px pills, same 13px Cascadia
+Mono, same 16px icons — the taskbar is matched to the bar, not the other way
+around:
+
+![zebar](docs/zebar-bar.png)
+![taskbar](docs/taskbar.jpg)
+
+Taskbar pieces, 3× — window labels (`taskbar-labels` + the styler), the start
+chip that replaces the Windows logo, and the tray with its per-icon colors and
+the network line from `taskbar-clock-customization`:
+
+![labels](docs/taskbar-labels.png)
+![start chip](docs/start-chip.png)
+![tray](docs/tray.png)
+
+Start menu and notification center, both from their styler mods:
+
+![start menu](docs/start-menu.png)
+![notification center](docs/notification-center.png)
+
+File explorer — title bar, tabs, breadcrumb and toolbar are themed; the file
+list and nav pane are DirectUI and stay as Windows draws them:
+
+![explorer](docs/explorer.jpg)
+
+Mosaicked regions are recent-file names and network share addresses, not part
+of the theme.
+
 Everything here is scripts that write settings — no forked mods, no patched
 binaries checked in. The only file that gets modified in place is the Zebar
 pack's compiled bundle, and that one keeps a `.orig` next to it.
