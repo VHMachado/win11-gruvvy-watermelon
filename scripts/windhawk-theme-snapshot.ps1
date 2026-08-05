@@ -14,7 +14,8 @@ $ErrorActionPreference = 'Stop'
 $mods = 'windows-11-taskbar-styler', 'taskbar-icon-size', 'taskbar-labels',
         'taskbar-start-button-position', 'taskbar-clock-customization',
         'windows-11-start-menu-styler', 'windows-11-notification-center-styler',
-        'windows-11-file-explorer-styler'
+        'windows-11-file-explorer-styler', 'taskbar-thumbnails',
+        'explorer-details-better-file-sizes'
 $dir  = Join-Path (Split-Path $PSScriptRoot -Parent) 'snapshots'
 $file = Join-Path $dir "$Name.reg"
 

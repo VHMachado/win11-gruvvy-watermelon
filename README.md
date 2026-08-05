@@ -22,11 +22,14 @@ pack's compiled bundle, and that one keeps a `.orig` next to it.
 
 Install these first — the installer refuses to run without them:
 
-- [Windhawk](https://windhawk.net) with these mods added (settings can stay default,
-  the scripts overwrite them): `windows-11-taskbar-styler`,
+- [Windhawk](https://windhawk.net). Required — the scripts write their settings,
+  so whatever is in them can stay default: `windows-11-taskbar-styler`,
   `windows-11-start-menu-styler`, `windows-11-notification-center-styler`,
   `windows-11-file-explorer-styler`, `taskbar-icon-size`, `taskbar-labels`,
-  `taskbar-clock-customization`
+  `taskbar-clock-customization`.
+  Optional, not touched by any script but included in the snapshots so they
+  travel with the setup: `taskbar-thumbnails` (list-mode previews),
+  `explorer-details-better-file-sizes`.
 - [Zebar](https://github.com/glzr-io/zebar) with the pack
   `zacccharv.bar-gruvvy-watermelon` installed from the marketplace
 - [GlazeWM](https://github.com/glzr-io/glazewm) — the bar's workspace pills and
@@ -57,11 +60,38 @@ Each script takes parameters instead of needing edits:
 
 `zebar-gruvvy-patch.ps1 -Revert` restores the pack from its `.orig` files.
 
+## Windows theme underneath
+
+The window frames, title bars and system dialogs are **not** from this repo —
+they come from [Andromeda 11 by niivu](https://www.deviantart.com/niivu/art/Andromeda-11-999859470),
+a third-party visual style. Nothing of it is redistributed here; install it from
+the author's page.
+
+What this machine runs, for reference:
+
+| | |
+|---|---|
+| visual style | `%SystemRoot%\resources\Themes\Andromeda\Andromeda NA.msstyles` (the "NA" variant, no window accent) |
+| color / size | `NormalColor`, `NormalSize` |
+| mode | `SystemMode=Dark`, `AppMode=Dark` |
+| wallpaper | `%USERPROFILE%\Pictures\wallpaper.png` |
+
+Third-party `.msstyles` don't load on stock Windows — `uxtheme.dll` only accepts
+signed styles. You need a patcher first ([SecureUxTheme](https://github.com/namazso/SecureUxTheme)
+or UltraUXThemePatcher); neither is bundled here, and installing one is a
+separate decision from applying this repo.
+
+The two dress different layers and don't overlap: Andromeda paints the Win32
+window chrome, this repo paints the XAML shell (taskbar, start menu, notification
+center, explorer's toolbar) plus the Zebar bar on top.
+
 ## Snapshots
 
 `scripts/windhawk-theme-snapshot.ps1 -Name X [-Restore]` exports/imports the
-settings of all eight Windhawk mods at once, into `snapshots/`. The history of
-this theme is in there, `v1` through `v11`.
+settings of every Windhawk mod in this setup at once, into `snapshots/`. The
+history of the theme is in there: `v1` through `v11` for how it got here, and
+`v12-full` as the current state — the first one that also carries the two mods
+no script writes to.
 
 Snapshots are machine-specific: the start button chip references the generated
 icon by absolute path (`file:///C:/Users/<you>/.glzr/start-icon.png`). On a new
